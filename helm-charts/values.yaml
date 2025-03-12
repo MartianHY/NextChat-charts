@@ -1,0 +1,38 @@
+replicaCount: 1
+
+image:
+  repository: yidadaa/chatgpt-next-web
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+autoscaling:
+  enabled: false
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+service:
+  type: NodePort
+  port: 3000
+  targetPort: 3000
+  nodePort: 30300
+
+config:
+  openAiApiKey: "your-sk"
+  code: "c9duol"
+  proxyUrl: ""
+  enableMcp: "false"
+
+resources: {}
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
